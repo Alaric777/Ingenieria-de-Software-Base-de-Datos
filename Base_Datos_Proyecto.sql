@@ -1,4 +1,4 @@
-drop table Usuario Cascade;
+--drop table Usuario Cascade;
 CREATE TABLE Usuario(
 	Id_Usuario INT primary key GENERATED ALWAYS AS IDENTITY,
 	Nombres Varchar(250) not null,
@@ -15,7 +15,7 @@ CREATE TABLE Usuario(
 	constraint correo_minus check(Correo_Electronico=lower(Correo_Electronico))
 );
 
-drop table InformacionAcademica;
+--drop table InformacionAcademica;
 Create table InformacionAcademica(
 	Id_infoAcademica INT primary key GENERATED ALWAYS AS IDENTITY,
 	Fecha_Inical date not null,
@@ -27,7 +27,7 @@ Create table InformacionAcademica(
 	constraint fk_usuario foreign key (Id_Usuario) References Usuario(Id_Usuario)	
 );
 
-drop table ExperienciaLaboral;
+--drop table ExperienciaLaboral;
 Create Table ExperienciaLaboral(
 	Id_Experiencia INT primary key GENERATED ALWAYS AS IDENTITY,
 	Empresa varchar(100) not null,
@@ -47,7 +47,7 @@ Create Table Permiso_Extension(
 	Id_Usuario INT not null,
 	constraint fk_usuario_Permiso foreign key (Id_Usuario) References Usuario(Id_Usuario)
 );
-Drop table Autocompletado;
+--Drop table Autocompletado;
 Create table Autocompletado(
 	Id_Autocompletado BigINT primary key GENERATED ALWAYS AS IDENTITY not null,
 	Casilla_Completada varchar(50) not null,
@@ -56,13 +56,13 @@ Create table Autocompletado(
 	Id_Usuario INT not null,
 	constraint fk_usuario_Autocompletado foreign key (Id_Usuario) References Usuario(Id_Usuario)
 );
-drop table Habilidades cascade;
+--drop table Habilidades cascade;
 Create table Habilidades(
 	Id_Habilidades int primary key GENERATED ALWAYS AS IDENTITY,
 	Nombre_Habilidad varchar(100) not null,
 	Fecha_eliminacion_habilidades TIMESTAMPTZ
 );
-drop table Usuario_Tiene_Habilidades cascade;
+--drop table Usuario_Tiene_Habilidades cascade;
 Create table Usuario_Tiene_Habilidades(
 	Id_Nivel_Habilidades INT primary key GENERATED ALWAYS AS IDENTITY,
 	Nivel_Habilidades Varchar(100) not null, 
